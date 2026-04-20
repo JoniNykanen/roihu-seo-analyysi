@@ -259,8 +259,9 @@
       font-family: var(--fm); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.08em;
       text-transform: uppercase; text-align: center;
       box-shadow: 0 -4px 32px rgba(245,197,24,0.2);
-      transition: background 0.15s;
+      transform: translateY(100%); transition: transform 0.3s ease, background 0.15s;
     }
+    .cta-bar.visible { transform: translateY(0); }
     .cta-bar:hover { background: #ffd340; }
 
     /* MOBILE */
@@ -273,6 +274,7 @@
       .topnav a { display: none; }
       .hamburger { display: flex; }
       .cta-bar { display: block; }
+      .cta-bar.visible { transform: translateY(0); }
 
       .hero { min-height: auto; padding: 40px 16px 48px; gap: 32px; }
       .hero-title { font-size: clamp(4rem, 18vw, 5.5rem); margin-bottom: 20px; }
@@ -331,7 +333,7 @@
   <a href="#toimenpiteet">Toimenpiteet</a>
 </div>
 
-<a href="https://joninykanen.com" target="_blank" class="cta-bar">Ota yhteyttä &rarr;</a>
+<a href="mailto:joninykanen@gmail.com" class="cta-bar" id="ctabar">Ota yhteyttä &rarr;</a>
 
 <!-- HERO -->
 <div class="hero">
@@ -613,6 +615,16 @@
     });
   }, { threshold: 0.3 });
   document.querySelectorAll('.panel').forEach(p => bo.observe(p));
+
+  // CTA bar
+  const ctabar = document.getElementById('ctabar');
+  ctabar.style.display = 'block';
+  function updateCta() {
+    const nearBottom = window.scrollY + window.innerHeight >= document.body.scrollHeight - 200;
+    ctabar.classList.toggle('visible', nearBottom);
+  }
+  window.addEventListener('scroll', updateCta, { passive: true });
+  updateCta();
 
   // Hamburger
   const hbtn = document.getElementById('hbtn');
