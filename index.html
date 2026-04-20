@@ -163,9 +163,9 @@
     }
     .irow:hover { background: var(--s2); border-color: var(--bhi); }
     .badge { font-family: var(--fm); font-size: 0.64rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; text-align: center; white-space: nowrap; }
-    .badge.bc { background: rgba(230,57,70,0.1); color: var(--red); }
-    .badge.bw { background: rgba(244,132,95,0.1); color: var(--orange); }
-    .badge.bi { background: rgba(76,201,240,0.08); color: var(--blue); }
+    .badge.bc { background: rgba(230,57,70,0.15); color: #ff8a93; border: 1px solid rgba(230,57,70,0.25); }
+    .badge.bw { background: rgba(244,132,95,0.15); color: #ffb89e; border: 1px solid rgba(244,132,95,0.25); }
+    .badge.bi { background: rgba(76,201,240,0.1); color: #7dd8f5; border: 1px solid rgba(76,201,240,0.2); }
     .ititle { font-family: var(--fb); font-weight: 600; font-size: 1.0rem; color: var(--text); margin-bottom: 5px; line-height: 1.4; }
     .icount { font-family: var(--fm); font-size: 0.76rem; color: var(--dim); margin-left: 8px; }
     .idesc { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 8px; }
@@ -434,7 +434,7 @@
   <section class="sec" id="sitemap">
     <div class="sec-head reveal">
       <div class="sec-num">08</div>
-      <div class="sec-tw"><div class="sec-tag">Kaksikielisyys &amp; indeksointi</div><div class="sec-title">SITEMAP</div><div class="sec-desc">Sitemap löytyy ja toimii — mutta sisältää kolme merkittävää ongelmaa</div></div>
+      <div class="sec-tw"><div class="sec-tag">Kaksikielisyys &amp; indeksointi</div><div class="sec-title">SITEMAP</div><div class="sec-desc">Sitemap löytyy ja toimii — mutta sisältää useita merkittäviä ongelmakohtia</div></div>
     </div>
     <div class="ilist reveal">
       <div class="irow"><span class="badge bc">Kriittinen</span><div><div class="ititle">Hreflang puuttuu kaksikieliseltä sivustolta</div><div class="idesc">Sivustolla on täydellinen englanninkielinen versio <code>/en/</code>-polun alla, mutta sitemapissa tai <code>&lt;head&gt;</code>-osiossa ei ole yhtään hreflang-attribuuttia. Google ei tiedä mitkä sivut ovat toistensa käännöksiä — suomalaiselle käyttäjälle voi näkyä englanninkielinen versio.</div><div class="ifix"><strong>Korjaus:</strong> Lisää <code>hreflang="fi"</code>, <code>hreflang="en"</code> ja <code>hreflang="x-default"</code> -viittaukset. Voidaan toteuttaa sitemapissa tai sivun head-osiossa.</div></div></div>
@@ -470,7 +470,7 @@
   <section class="sec" id="toimenpiteet">
     <div class="sec-head reveal">
       <div class="sec-num">10</div>
-      <div class="sec-tw"><div class="sec-tag">Priorisoitu lista</div><div class="sec-title">TOIMENPITEET</div><div class="sec-desc">Järjestetty vaikutuksen mukaan — ensimmäiset viisi ovat nopeimmat voitot</div></div>
+      <div class="sec-tw"><div class="sec-tag">Priorisoitu lista</div><div class="sec-title">TOIMENPITEET</div><div class="sec-desc">Järjestetty vaikutuksen mukaan — ensimmäiset kuusi ovat nopeimmat voitot</div></div>
     </div>
     <div class="alist reveal">
       <div class="arow"><div class="anum">01</div><div><div class="atitle">Tutki ja korjaa 20 ei-vastaavaa URL:a</div><div class="adesc">Eristä statuskoodi-0-URL:t, testaa manuaalisesti, poista tai 301-ohjaa. Todennäköisesti CMS:n parametriongelmia.</div></div><span class="impact ih">Korkea</span></div>
