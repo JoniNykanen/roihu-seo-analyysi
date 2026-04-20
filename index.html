@@ -158,7 +158,7 @@
     .irow {
       background: var(--s1); border: 1px solid var(--border); border-radius: 6px;
       padding: 18px 22px;
-      display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: start;
+      display: grid; grid-template-columns: 108px 1fr; gap: 18px; align-items: start;
       transition: background 0.15s, border-color 0.15s;
     }
     .irow:hover { background: var(--s2); border-color: var(--bhi); }
@@ -426,7 +426,7 @@
     </div>
     <div class="ilist reveal">
       <div class="irow"><span class="badge bi">Palvelin</span><div><div class="ititle">4 tietoturvaheaderia puuttuu 283 sivulta — X-Frame-Options 166 sivulta <span class="icount">283 / 166 sivua</span></div><div class="idesc">HSTS, Content-Security-Policy, X-Content-Type-Options ja Referrer-Policy puuttuvat 283 sivulta (93 %). X-Frame-Options puuttuu 166 sivulta (54,6 %) — pienempi peitto, todennäköisesti osittain konfiguroitu. Kaikki ovat palvelinkonfiguraatiokysymyksiä.</div><div class="ifix"><strong>Korjaus:</strong> Lisää headerit .htaccess- tai nginx.conf-tiedostoon. Yksi muutos, koko sivusto korjattu.</div></div></div>
-      <div class="irow"><span class="badge bi">Turvallisuus</span><div><div class="ititle">target="_blank" ilman rel="noopener" <span class="icount">114 linkkiä</span></div><div class="idesc">Ulkoiset linkit avautuvat uudessa välilehdessä ilman suojausta. Uusimmat selaimet korjaavat automaattisesti, mutta hyvä käytäntö silti.</div><div class="ifix"><strong>Korjaus:</strong> Lisää <code>rel="noopener noreferrer"</code> kaikkiin ulkoisiin linkkeihin joissa on <code>target="_blank"</code>.</div></div></div>
+      <div class="irow"><span class="badge bi">Linkit</span><div><div class="ititle">target="_blank" ilman rel="noopener" <span class="icount">114 linkkiä</span></div><div class="idesc">Ulkoiset linkit avautuvat uudessa välilehdessä ilman suojausta. Uusimmat selaimet korjaavat automaattisesti, mutta hyvä käytäntö silti.</div><div class="ifix"><strong>Korjaus:</strong> Lisää <code>rel="noopener noreferrer"</code> kaikkiin ulkoisiin linkkeihin joissa on <code>target="_blank"</code>.</div></div></div>
     </div>
   </section>
 
