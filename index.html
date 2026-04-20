@@ -309,8 +309,8 @@
       <div class="stat-c c-or"><div class="stat-n">77</div><div class="stat-l">Meta-ongelmat<br>CTR-riski</div></div>
     </div>
     <div class="q-grid reveal">
-      <div class="q-card q-red"><div class="q-tag">Kriittinen — korjaa ensin</div><div class="q-title">H1-template-ongelma koko sivustolla</div><div class="q-desc">Logo on kääritty &lt;h1&gt;-tagiin joka rikkoo otsikkorakenteen 73 %:lla sivuista. Yksi template-muutos, sivustolaajuinen korjaus.</div></div>
-      <div class="q-card q-or"><div class="q-tag">Varoitus — suuri CTR-vaikutus</div><div class="q-title">77 sivua ilman toimivaa meta-kuvausta</div><div class="q-desc">Puuttuu, liian pitkä tai kopioitu. Google kirjoittaa oman — tulos on harvoin optimaalinen hakutulosnäkyvyyden kannalta.</div></div>
+      <div class="q-card q-red"><div class="q-tag">Kriittinen — korjaa ensin</div><div class="q-title">H1-template-ongelma koko sivustolla</div><div class="q-desc">Logo on kääritty &lt;h1&gt;-tagiin 31 sivulla (27 %) — tämä saa H1:n järjestyksen rikkoontumaan 84 sivulla (73 %). Yksi template-muutos, sivustolaajuinen korjaus.</div></div>
+      <div class="q-card q-or"><div class="q-tag">Varoitus — suuri CTR-vaikutus</div><div class="q-title">77 sivua ilman toimivaa meta-kuvausta</div><div class="q-desc">Puuttuu (21) tai liian pitkä (56). Lisäksi 12 sivulla kopioitu kuvaus. Google kirjoittaa oman — tulos on harvoin optimaalinen hakutulosnäkyvyyden kannalta.</div></div>
       <div class="q-card q-pu"><div class="q-tag">Uusi osa-alue — kilpailuetu</div><div class="q-title">Ei tekoälynäkyvyyttä</div><div class="q-desc">Ei Schemaa, ei FAQ-rakennetta, sisältö vaikeasti luettavaa. ChatGPT ja Perplexity eivät löydä tai siteeraa sivustoa.</div></div>
     </div>
   </section>
@@ -345,7 +345,7 @@
           <div><div class="brow-labels"><span class="bname">Logo-kuva H1:ssä (alt-teksti)</span><span class="bval">31 sivua · 27,2 %</span></div><div class="btrack"><div class="bfill bo" style="width:27.2%"></div></div></div>
           <div><div class="brow-labels"><span class="bname">H1 yli 70 merkkiä</span><span class="bval">3 sivua</span></div><div class="btrack"><div class="bfill bb" style="width:3%"></div></div></div>
         </div>
-        <div class="pnote">Todennäköinen syy: headerin logo on kääritty &lt;h1&gt;-tagiin. Yksi template-muutos korjaa 73 % sivuista kerralla.</div>
+        <div class="pnote">Screaming Frog havaitsi logo-kuvan alt-tekstin H1:ssä 31 sivulla (27,2 %). Tämä on todennäköinen syy sille, miksi H1 on epäjärjestyksessä 84 sivulla (73,7 %) — logo tulee ennen sisältöotsikkoa. Yksi template-muutos korjaisi molemmat kerralla.</div>
       </div>
       <div class="panel">
         <div class="ptitle">H2-otsikkorakenne</div>
@@ -386,7 +386,7 @@
         <div><div class="brow-labels"><span class="bname">Kuvissa ei width &amp; height (CLS)</span><span class="bval">153 kuvaa · 76,9 %</span></div><div class="btrack"><div class="bfill br" style="width:76.9%"></div></div></div>
         <div><div class="brow-labels"><span class="bname">Kuva ilman alt-tekstiä</span><span class="bval">92 kuvaa · 46,2 %</span></div><div class="btrack"><div class="bfill br" style="width:46.2%"></div></div></div>
         <div><div class="brow-labels"><span class="bname">Kuva ilman alt-attribuuttia lainkaan</span><span class="bval">39 kuvaa · 19,6 %</span></div><div class="btrack"><div class="bfill bo" style="width:19.6%"></div></div></div>
-        <div><div class="brow-labels"><span class="bname">Kuva yli 100 KB (pakkaamaton)</span><span class="bval">42 sivua · 21,1 %</span></div><div class="btrack"><div class="bfill bo" style="width:21.1%"></div></div></div>
+        <div><div class="brow-labels"><span class="bname">Kuva yli 100 KB (pakkaamaton)</span><span class="bval">42 kuvaa · 21,1 %</span></div><div class="btrack"><div class="bfill bo" style="width:21.1%"></div></div></div>
       </div>
     </div>
     <div class="ilist reveal">
@@ -425,7 +425,7 @@
       <div class="sec-tw"><div class="sec-tag">Palvelinkonfiguraatio</div><div class="sec-title">TIETOTURVA</div><div class="sec-desc">Matala SEO-prioriteetti — yksi palvelinmuutos korjaa kaikki kerralla</div></div>
     </div>
     <div class="ilist reveal">
-      <div class="irow"><span class="badge bi">Palvelin</span><div><div class="ititle">5 tietoturvaheaderia puuttuu lähes kaikista sivuista <span class="icount">283 sivua</span></div><div class="idesc">Puuttuvat: HSTS, Content-Security-Policy, X-Frame-Options, X-Content-Type-Options, Referrer-Policy. Puhtaasti palvelimen konfiguraatiokysymyksiä.</div><div class="ifix"><strong>Korjaus:</strong> Lisää headerit .htaccess- tai nginx.conf-tiedostoon. Yksi muutos, koko sivusto korjattu.</div></div></div>
+      <div class="irow"><span class="badge bi">Palvelin</span><div><div class="ititle">4 tietoturvaheaderia puuttuu 283 sivulta — X-Frame-Options 166 sivulta <span class="icount">283 / 166 sivua</span></div><div class="idesc">HSTS, Content-Security-Policy, X-Content-Type-Options ja Referrer-Policy puuttuvat 283 sivulta (93 %). X-Frame-Options puuttuu 166 sivulta (54,6 %) — pienempi peitto, todennäköisesti osittain konfiguroitu. Kaikki ovat palvelinkonfiguraatiokysymyksiä.</div><div class="ifix"><strong>Korjaus:</strong> Lisää headerit .htaccess- tai nginx.conf-tiedostoon. Yksi muutos, koko sivusto korjattu.</div></div></div>
       <div class="irow"><span class="badge bi">Turvallisuus</span><div><div class="ititle">target="_blank" ilman rel="noopener" <span class="icount">114 linkkiä</span></div><div class="idesc">Ulkoiset linkit avautuvat uudessa välilehdessä ilman suojausta. Uusimmat selaimet korjaavat automaattisesti, mutta hyvä käytäntö silti.</div><div class="ifix"><strong>Korjaus:</strong> Lisää <code>rel="noopener noreferrer"</code> kaikkiin ulkoisiin linkkeihin joissa on <code>target="_blank"</code>.</div></div></div>
     </div>
   </section>
@@ -441,6 +441,7 @@
       <div class="irow"><span class="badge bc">Virhe</span><div><div class="ititle">Suomenkielinen sana englanninkielisessä URL-polussa</div><div class="idesc">URL <code>/en/our-clients/sekalaiset/jl-metals-oy-presentation</code> sisältää suomenkielisen sanan muuten täysin englanninkielisessä polurakenteessa. CMS:ssä luotu kategoria suomeksi jota ei käännetty.</div><div class="ifix"><strong>Korjaus:</strong> Vaihda polku <code>/en/our-clients/miscellaneous/...</code> ja lisää 301-uudelleenohjaus.</div></div></div>
       <div class="irow"><span class="badge bw">Varoitus</span><div><div class="ititle">Kaikki prioriteetit ja muutosvälit identtiset</div><div class="idesc">Jokainen URL on merkitty <code>priority="0.5"</code> ja <code>changefreq="weekly"</code> — myös blogitekstit joita ei ole päivitetty vuoteen. Etusivu ja evastesivu saavat saman painoarvon.</div><div class="ifix"><strong>Korjaus:</strong> Etusivu ja palvelut: 0.9. Blogit: monthly. Utility-sivut: 0.1.</div></div></div>
       <div class="irow"><span class="badge bw">Varoitus</span><div><div class="ititle">Lastmod-päivämäärät blogeissa epäluotettavia</div><div class="idesc">Valtaosalla blogiartikkeleista on täsmälleen sama päivämäärä 2024-10-10 — viittaa batch-importtiin. Google oppii nopeasti jos lastmod ei pidä paikkaansa.</div><div class="ifix"><strong>Korjaus:</strong> Tarkista CMS:n sitemap-generaattorin asetukset. Varmista että lastmod pohjautuu todelliseen muokkausaikaan.</div></div></div>
+      <div class="irow"><span class="badge bw">Sisältö</span><div><div class="ititle">Vanhojen blogien sisältö kannattaa päivittää</div><div class="idesc">Lastmod-data viittaa siihen, että blogisisältöä ei ole aktiivisesti päivitetty. Vanhentuneet artikkelit menettävät rankkauspainoa ajan myötä — Google suosii tuoretta ja relevanttia sisältöä. Mainostoimistolle, jonka pitäisi osoittaa ajantasaista osaamista, tämä on myös E-E-A-T-ongelma: vanhat referenssit tai tapaustutkimukset ilman päivityksiä heikentävät asiantuntijasignaalia.</div><div class="ifix"><strong>Toimenpide:</strong> Auditoi blogit viimeksi päivitetyn mukaan. Päivitä parhaat artikkelit — lisää tuoreita esimerkkejä, päivitä tilastot, paranna rakennetta FAQ-muotoiseksi. Päivitetty sisältö kannattaa merkitä myös sitemapiin oikealla lastmod-päivällä.</div></div></div>
       <div class="irow"><span class="badge bi">Huomio</span><div><div class="ititle">Robots.txt ei viittaa sitemapiin</div><div class="idesc">Sitemap on olemassa mutta robots.txt-tiedostossa ei ole <code>Sitemap:</code>-riviä. Googlen suosittelema lisäys.</div><div class="ifix"><strong>Korjaus:</strong> Lisää robots.txt:n loppuun: <code>Sitemap: https://roihuinc.fi/sitemap.xml</code></div></div></div>
     </div>
   </section>
@@ -473,7 +474,7 @@
     </div>
     <div class="alist reveal">
       <div class="arow"><div class="anum">01</div><div><div class="atitle">Tutki ja korjaa 20 ei-vastaavaa URL:a</div><div class="adesc">Eristä statuskoodi-0-URL:t, testaa manuaalisesti, poista tai 301-ohjaa. Todennäköisesti CMS:n parametriongelmia.</div></div><span class="impact ih">Korkea</span></div>
-      <div class="arow"><div class="anum">02</div><div><div class="atitle">Korjaa logo-H1-template-ongelma</div><div class="adesc">Vaihda headerin logon ympärillä oleva &lt;h1&gt; &lt;div&gt;-tagiksi. Yksi muutos korjaa 73 % sivuston H1-rakenteesta.</div></div><span class="impact ih">Korkea</span></div>
+      <div class="arow"><div class="anum">02</div><div><div class="atitle">Korjaa logo-H1-template-ongelma</div><div class="adesc">Vaihda headerin logon ympärillä oleva &lt;h1&gt; &lt;div&gt;-tagiksi. Logo on H1:ssä 31 sivulla (27 %) — tämä aiheuttaa H1-järjestysrikkon 84 sivulla (73 %). Yksi muutos korjaa molemmat.</div></div><span class="impact ih">Korkea</span></div>
       <div class="arow"><div class="anum">03</div><div><div class="atitle">Kirjoita puuttuvat ja liian pitkät meta-kuvaukset</div><div class="adesc">77 sivua tarvitsee uuden tai korjatun meta-kuvauksen. Aloita tärkeimmistä: etusivu, palvelut, yhteystiedot.</div></div><span class="impact ih">Korkea</span></div>
       <div class="arow"><div class="anum">04</div><div><div class="atitle">Tarkista 3 epäkelpoon osoitteeseen viittaavaa kanonikaa</div><div class="adesc">Nämä ohjaavat linkkinekun kuolleisiin tai ei-indeksoitaviin sivuihin. Päivitä kanoninen oikeaan URL:iin.</div></div><span class="impact ih">Korkea</span></div>
       <div class="arow"><div class="anum">05</div><div><div class="atitle">Toteuta Schema-markup AEO-perustan luomiseksi</div><div class="adesc">LocalBusiness, Organization, WebSite ja BreadcrumbList JSON-LD-muodossa. Concrete CMS:n custom header -kenttä — ei vaadi kehittäjää.</div></div><span class="impact ih">Korkea</span></div>
@@ -482,8 +483,9 @@
       <div class="arow"><div class="anum">08</div><div><div class="atitle">Lisää alt-tekstit kaikille sisältökuville</div><div class="adesc">92 kuvaa ilman alt-tekstiä. Priorisoi kuvat joissa on informaatiota tai tekstiä.</div></div><span class="impact im">Kohtalainen</span></div>
       <div class="arow"><div class="anum">09</div><div><div class="atitle">Korjaa /en/our-clients/sekalaiset/ -polku</div><div class="adesc">Vaihda suomenkielinen kategorianimi englanniksi (miscellaneous). Lisää 301-uudelleenohjaus vanhasta URL:sta.</div></div><span class="impact im">Kohtalainen</span></div>
       <div class="arow"><div class="anum">10</div><div><div class="atitle">Paranna sisällön luettavuutta tekoälyä varten</div><div class="adesc">74 % sivuista luettavuudeltaan "erittäin vaikea". Lyhyemmät virkkeet, selkeät väliotsikot, FAQ-rakenne blogiartikkeleissa.</div></div><span class="impact im">Kohtalainen</span></div>
-      <div class="arow"><div class="anum">11</div><div><div class="atitle">Korjaa sivuotsikkojen pituudet ja duplikaatit</div><div class="adesc">37 sivuotsikkoa liian pitkiä, 9 kopioitu. Tavoite: 50–60 merkkiä, jokainen yksilöllinen.</div></div><span class="impact im">Kohtalainen</span></div>
-      <div class="arow"><div class="anum">12</div><div><div class="atitle">Lisää tietoturvaheaderit palvelimelle</div><div class="adesc">HSTS, CSP, X-Frame-Options, X-Content-Type, Referrer-Policy. Yksi .htaccess-muutos, koko sivusto kerralla.</div></div><span class="impact il">Matala</span></div>
+      <div class="arow"><div class="anum">11</div><div><div class="atitle">Päivitä vanhat blogit — tuoreus on rankkaustekijä</div><div class="adesc">Lastmod-data viittaa siihen, että blogisisältöä ei ole päivitetty aktiivisesti. Google suosii tuoretta sisältöä, ja mainostoimistolle vanhentuneet casestudyt ovat myös E-E-A-T-ongelma. Paranna parhaat artikkelit: päivitä tilastot, lisää tuoreita esimerkkejä, muuta rakenne FAQ-muotoiseksi.</div></div><span class="impact im">Kohtalainen</span></div>
+      <div class="arow"><div class="anum">12</div><div><div class="atitle">Korjaa sivuotsikkojen pituudet ja duplikaatit</div><div class="adesc">37 sivuotsikkoa liian pitkiä, 9 kopioitu. Tavoite: 50–60 merkkiä, jokainen yksilöllinen.</div></div><span class="impact im">Kohtalainen</span></div>
+      <div class="arow"><div class="anum">13</div><div><div class="atitle">Lisää tietoturvaheaderit palvelimelle</div><div class="adesc">HSTS, CSP, X-Frame-Options, X-Content-Type, Referrer-Policy. Yksi .htaccess-muutos, koko sivusto kerralla.</div></div><span class="impact il">Matala</span></div>
     </div>
   </section>
 
