@@ -311,7 +311,7 @@
     <div class="q-grid reveal">
       <div class="q-card q-red"><div class="q-tag">Kriittinen — korjaa ensin</div><div class="q-title">H1-template-ongelma koko sivustolla</div><div class="q-desc">Logo on kääritty &lt;h1&gt;-tagiin 31 sivulla (27 %) — tämä saa H1:n järjestyksen rikkoontumaan 84 sivulla (73 %). Yksi template-muutos, sivustolaajuinen korjaus.</div></div>
       <div class="q-card q-or"><div class="q-tag">Varoitus — suuri CTR-vaikutus</div><div class="q-title">77 sivua ilman toimivaa meta-kuvausta</div><div class="q-desc">Puuttuu (21) tai liian pitkä (56). Lisäksi 12 sivulla kopioitu kuvaus. Google kirjoittaa oman — tulos on harvoin optimaalinen hakutulosnäkyvyyden kannalta.</div></div>
-      <div class="q-card q-pu"><div class="q-tag">Uusi osa-alue — kilpailuetu</div><div class="q-title">Ei tekoälynäkyvyyttä</div><div class="q-desc">Ei Schemaa, ei FAQ-rakennetta, sisältö vaikeasti luettavaa. ChatGPT ja Perplexity eivät löydä tai siteeraa sivustoa.</div></div>
+      <div class="q-card q-pu"><div class="q-tag">Uusi osa-alue — kilpailuetu</div><div class="q-title">Tekoälynäkyvyyttä voi vahvistaa</div><div class="q-desc">Sivusto löytyy Perplexitystä ja ChatGPT Searchista — mutta ilman Schemaa, FAQ-rakennetta tai mitattavia tuloksia siteerattavuus on sattumanvaraista.</div></div>
     </div>
   </section>
 
@@ -452,13 +452,13 @@
       <div class="sec-num">09</div>
       <div class="sec-tw"><div class="sec-tag">Uusi osa-alue</div><div class="sec-title">TEKOÄLYOPTIMOINTI</div><div class="sec-desc">AEO &amp; GEO — miten sivusto näkyy Google AI Overviewsissa, ChatGPT:ssä ja Perplexityssä</div></div>
     </div>
-    <div class="aeo-intro reveal">roihuinc.fi ei tällä hetkellä näy AEO/GEO-kanavissa — Google AI Overviews, Perplexity, ChatGPT Search. Puuttuva Schema-markup, heikko E-E-A-T ja vaikealukuinen sisältö yhdessä tarkoittavat, että sivuston ei käytännössä esiinny tekoälygeneroiduissa vastauksissa. Tämä on nopeasti suljettu aukko.</div>
+    <div class="aeo-intro reveal">roihuinc.fi löytyy tekoälyhauista — Perplexity ja ChatGPT Search tunnistavat sivuston. Näkyvyyttä voi kuitenkin vahvistaa merkittävästi: <strong>Schema-markup puuttuu kokonaan</strong>, E-E-A-T-signaalit ovat ohuet ja sisältö on vaikealukuista. Ilman rakenteellista dataa tekoäly päättelee yrityksen tiedot tekstistä — epäluotettavasti ja epätäydellisesti.</div>
     <div class="aeo-grid reveal">
       <div class="aeo-card"><div class="aeo-name">Strukturoitu data (Schema)</div><div class="aeo-desc">Ei yhtään JSON-LD-lohkoa koko sivustolla. Ilman sitä tekoäly joutuu päättelemään yrityksen tiedot tekstistä — epäluotettavasti.</div><span class="aeo-status as-m">Puuttuu kokonaan</span></div>
-      <div class="aeo-card"><div class="aeo-name">E-E-A-T — Asiantuntijuuden signaalit</div><div class="aeo-desc">Blogeissa ei tekijämerkintöjä, referenssisivuilla ei tuloksia tai mittareita — pelkkiä logoja. Signaalit asiantuntemuksesta puuttuvat.</div><span class="aeo-status as-p">Heikko</span></div>
+      <div class="aeo-card"><div class="aeo-name">E-E-A-T — Asiantuntijuuden signaalit</div><div class="aeo-desc">Blogeissa näkyy kirjoittajan etunimi, mutta ei titteliä, kuvaa tai profiililinkkiä. Asiakassivuilla listataan tuotetut palvelut — mutta mitattavat tulokset puuttuvat. Deliveraabelit eivät rakenna asiantuntijasignaalia yhtä vahvasti kuin konkreettiset vaikutukset.</div><span class="aeo-status as-p">Heikko</span></div>
       <div class="aeo-card"><div class="aeo-name">Sisällön luettavuus</div><div class="aeo-desc">74,6 % sivuista Flesch-luettavuudeltaan "erittäin vaikea" — pitkät virkkeet, kompakti rakenne. Siteerattavuus kärsii.</div><span class="aeo-status as-m">Ei optimoitu</span></div>
       <div class="aeo-card"><div class="aeo-name">FAQ- ja kysymyspohjainen sisältö</div><div class="aeo-desc">Blogisisältö on kirjoitettu esseenä, ei Q&A-muodossa. FAQPage-schema puuttuu. Helppo muutos jolla iso vaikutus AI Overviewsiin.</div><span class="aeo-status as-m">Puuttuu</span></div>
-      <div class="aeo-card"><div class="aeo-name">Paikallinen tekoälynäkyvyys</div><div class="aeo-desc">"Mainostoimisto Tampere" -haut ohjautuvat yhä enemmän AI-generaattoreihin. Ilman LocalBusiness-schemaa ja johdonmukaisia NAP-tietoja Roihu jää paikallisissa AI-vastauksissa heikkoon asemaan.</div><span class="aeo-status as-p">Osittainen</span></div>
+      <div class="aeo-card"><div class="aeo-name">Paikallinen tekoälynäkyvyys</div><div class="aeo-desc">"Mainostoimisto Tampere" -haut ohjautuvat yhä enemmän tekoälyhakuihin — sivusto löytyy jo hauilla, mutta LocalBusiness-schema ja johdonmukaiset yhteystiedot vahvistaisivat paikallisnäkyvyyttä entisestään.</div><span class="aeo-status as-p">Parannettavissa</span></div>
       <div class="aeo-card"><div class="aeo-name">Englanninkielinen versio</div><div class="aeo-desc">Sivustolla on täydellinen /en/-versio — mutta ilman hreflang-tageja tai englanninkielistä Schema-dataa se ei tuo lisänäkyvyyttä kummallekaan kielelle.</div><span class="aeo-status as-p">Hyödyntämätön</span></div>
     </div>
     <div class="ilist reveal">
