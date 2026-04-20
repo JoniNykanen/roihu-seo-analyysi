@@ -485,7 +485,8 @@
   <!-- Saate -->
   <div class="saate" id="saate">
     <div class="saate-label">Analyysin tausta</div>
-    <p>Olen <strong>digimarkkinoinnin ja analytiikan maisteriopiskelija</strong> Itä-Suomen yliopistossa. Kandidaattini on markkinoinnista ja johtamisesta. Tällä hetkellä opiskelen hakukoneoptimointia sekä tekoälyoptimoinnin osa-alueita (AEO/GEO), ja etsin harjoittelu- tai trainee-paikkaa jossa voisin kehittyä moniosaajaksi digimarkkinoinnissa.</p>
+    <p>Olen <strong>digimarkkinoinnin ja analytiikan maisteriopiskelija</strong> Itä-Suomen yliopistossa. Kandidaattini on markkinoinnista ja johtamisesta. Tällä hetkellä opiskelen hakukoneoptimointia sekä tekoälyoptimoinnin osa-alueita (AEO/GEO), ja etsin harjoittelu- tai trainee-paikkaa jossa voisin kehittyä <strong>moniosaajaksi</strong> digimarkkinoinnissa.</p>
+    <p>Tavoitteenani on kasvaa tekijäksi, joka kykenee auttamaan tarvittaessa kaikessa — ei ainoastaan yhdellä kapealla osa-alueella. Akateeminen taustani auttaa minua tunnistamaan pullonkauloja organisaation päivittäisessä toiminnassa: näen sekä strategisen kokonaiskuvan että yksittäiset tekniset ongelmat jotka hidastavat tuloksia. SEO on tässä hyvä esimerkki — se koskettaa sisältöä, teknistä toteutusta, analytiikkaa ja asiakasymmärrystä samanaikaisesti.</p>
     <p>Tein tämän analyysin <strong>omasta aloitteestani</strong> ennen hakemuksen lähettämistä. Halusin näyttää konkreettisesti miten ajattelen ja mitä osaan — ei vain CV:nä paperilla. Analyysi perustuu Screaming Frog SEO Spider -dataan, sivuston lähdekoodiin, sitemappiin ja robots.txt-tiedostoon.</p>
     <p>Löysin useita kehitysmahdollisuuksia joihin voisin harjoittelun aikana suoraan contribuoida — erityisesti Schema-markupin toteutuksessa, hreflang-konfiguroinnissa kaksikieliselle sivustolle sekä tekoälyoptimoinnissa, joka on nopeasti kasvava osa-alue johon monella toimistolla ei vielä ole resursseja.</p>
     <div class="highlight">
@@ -949,6 +950,7 @@
       <div class="issue-body">
         <div class="issue-title">Schema-markup on AEO:n perusta — ja se puuttuu kokonaan</div>
         <div class="issue-desc">Tärkeimmät lisättävät tyypit Roihulle: <strong>LocalBusiness / ProfessionalService</strong> (sijainti, puhelin, palvelut), <strong>Organization</strong> (bränditiedot, logo), <strong>WebSite</strong> (sitelinks-hakupalkki), <strong>FAQPage</strong> (blogiartikkelien kysymysosiot), <strong>BreadcrumbList</strong> (sivurakenne AI-järjestelmille). Nämä yhdessä luovat koneluettavan identiteetin jonka tekoäly voi luotettavasti siteerata.</div>
+        <div class="issue-desc" style="margin-top:10px;"><strong>Käytännön todiste:</strong> Testasin kysymällä Perplexitystä "hyvä mainostoimisto Suomesta". Vastaus listasi viisi kilpailijaa — Funkkis, Dominus, Idealabra, Höyry ja Digimys. Roihu ei esiintynyt vastauksessa lainkaan. Testasin jokaisen Schema.org-validaattorilla: jokaisella mainituista löytyi vähintään jokin schema-tyyppi (LocalBusiness, Organization tai WebPage). Roihun osoitteesta ei löytynyt yhtään schema-merkintää. Lisäämällä nämä schemät Roihu nousisi samalle viivalle kilpailijoiden kanssa — ja koska schema on toistaiseksi harvinainen suomalaisilla toimistoilla, toteutus toisi todennäköisesti välittömän kilpailuedun AI-näkyvyydessä.</div>
         <div class="issue-fix"><strong>Korjaus:</strong> JSON-LD-lohko lisätään sivun <code>&lt;head&gt;</code>-osioon Concrete CMS:n custom header -kentässä. Ei vaadi kehittäjää — voidaan tehdä CMS:n hallintapaneelista.</div>
       </div>
     </li>
