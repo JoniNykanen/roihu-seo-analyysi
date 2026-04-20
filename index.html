@@ -229,13 +229,50 @@
 
     [id] { scroll-margin-top: 68px; }
 
+    /* HAMBURGER */
+    .hamburger { display: none; margin-left: auto; flex-shrink: 0; background: none; border: none; cursor: pointer; padding: 8px; gap: 5px; flex-direction: column; align-items: flex-end; }
+    .hamburger span { display: block; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.25s, opacity 0.25s, width 0.25s; }
+    .hamburger span:nth-child(1) { width: 22px; }
+    .hamburger span:nth-child(2) { width: 16px; }
+    .hamburger span:nth-child(3) { width: 22px; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); width: 22px; }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 22px; }
+
+    /* MOBILE MENU */
+    .mob-menu {
+      display: none; position: fixed; inset: 56px 0 0 0;
+      background: rgba(11,11,11,0.97); backdrop-filter: blur(20px);
+      z-index: 299; flex-direction: column;
+      padding: 32px 24px 120px; gap: 4px;
+      overflow-y: auto;
+    }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { font-family: var(--fm); font-size: 1.1rem; color: var(--muted); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--border); letter-spacing: 0.06em; transition: color 0.15s; }
+    .mob-menu a:hover, .mob-menu a.active { color: var(--accent); }
+
+    /* CTA */
+    .cta-bar {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 400;
+      background: var(--accent); color: var(--bg);
+      padding: 16px 24px; text-decoration: none;
+      font-family: var(--fm); font-size: 0.9rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; text-align: center;
+      box-shadow: 0 -4px 32px rgba(245,197,24,0.2);
+      transition: background 0.15s;
+    }
+    .cta-bar:hover { background: #ffd340; }
+
     /* MOBILE */
     @media (max-width: 480px) {
-      body { padding-top: 56px; }
+      body { padding-top: 56px; padding-bottom: 60px; }
 
       .topnav { height: 56px; padding: 0 16px; }
-      .topnav .brand { font-size: 0.78rem; margin-right: 16px; }
-      .topnav a { font-size: 0.72rem; padding: 6px 10px; }
+      .topnav .brand { font-size: 0.78rem; margin-right: auto; }
+      .topnav .sep { display: none; }
+      .topnav a { display: none; }
+      .hamburger { display: flex; }
+      .cta-bar { display: block; }
 
       .hero { min-height: auto; padding: 40px 16px 48px; gap: 32px; }
       .hero-title { font-size: clamp(4rem, 18vw, 5.5rem); margin-bottom: 20px; }
@@ -275,7 +312,26 @@
   <a href="#sitemap">Sitemap</a>
   <a href="#aeo">AEO</a>
   <a href="#toimenpiteet">Toimenpiteet</a>
+  <button class="hamburger" id="hbtn" aria-label="Valikko">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mob-menu" id="mobmenu">
+  <a href="#saate">Esittely</a>
+  <a href="#yhteenveto">Yhteenveto</a>
+  <a href="#kriittiset">Kriittiset</a>
+  <a href="#rakenne">Rakenne</a>
+  <a href="#meta">Meta</a>
+  <a href="#kuvat">Kuvat</a>
+  <a href="#urlit">URL:t</a>
+  <a href="#tietoturva">Tietoturva</a>
+  <a href="#sitemap">Sitemap</a>
+  <a href="#aeo">AEO</a>
+  <a href="#toimenpiteet">Toimenpiteet</a>
+</div>
+
+<a href="https://joninykanen.com" target="_blank" class="cta-bar">Ota yhteyttä &rarr;</a>
 
 <!-- HERO -->
 <div class="hero">
@@ -557,6 +613,22 @@
     });
   }, { threshold: 0.3 });
   document.querySelectorAll('.panel').forEach(p => bo.observe(p));
+
+  // Hamburger
+  const hbtn = document.getElementById('hbtn');
+  const mobmenu = document.getElementById('mobmenu');
+  hbtn.addEventListener('click', () => {
+    hbtn.classList.toggle('open');
+    mobmenu.classList.toggle('open');
+    document.body.style.overflow = mobmenu.classList.contains('open') ? 'hidden' : '';
+  });
+  mobmenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hbtn.classList.remove('open');
+      mobmenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
 
   // Scroll-driven section scale
   const secs = document.querySelectorAll('.sec');
