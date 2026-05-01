@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joni Nykänen — SEO-auditointi 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink:       #111109;
+      --ink-mid:   #4a4a45;
+      --ink-soft:  #8a8a82;
+      --paper:     #faf9f6;
+      --paper-warm: #f2f0eb;
+      --copper:    #b8702e;
+      --copper-lt: #e8d5c0;
+      --green:     #2e6e4a;
+      --green-lt:  #d0e8da;
+      --amber:     #8a6000;
+      --amber-lt:  #f0e5c0;
+      --rule:      #d8d4ca;
+      --rule-soft: #eceae4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PAGE SHELL ── */
+    .page { max-width: 780px; margin: 0 auto; padding: 64px 32px 100px; }
+
+    /* ── FADE IN ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade { animation: fadeUp .55s ease both; }
+    .fade-1 { animation-delay: .05s; }
+    .fade-2 { animation-delay: .15s; }
+    .fade-3 { animation-delay: .25s; }
+    .fade-4 { animation-delay: .35s; }
+    .fade-5 { animation-delay: .45s; }
+    .fade-6 { animation-delay: .55s; }
+    .fade-7 { animation-delay: .65s; }
+    .fade-8 { animation-delay: .75s; }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      border-top: 3px solid var(--ink);
+      padding-top: 28px;
+      margin-bottom: 52px;
+    }
+    .masthead-label {
+      font-family: 'Source Serif 4', serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+    .masthead h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .masthead-meta {
+      font-size: 13px;
+      color: var(--ink-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 20px;
+    }
+    .masthead-meta span::before {
+      content: '';
+      display: inline-block;
+      width: 4px; height: 4px;
+      background: var(--copper);
+      border-radius: 50%;
+      margin-right: 7px;
+      vertical-align: middle;
+      margin-bottom: 2px;
+    }
+
+    /* ── SECTION ARCHITECTURE ── */
+    .block {
+      margin-bottom: 52px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .block:last-child { border-bottom: none; }
+
+    .block-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .block-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--copper);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .block-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .block-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+      margin-bottom: 4px;
+    }
+
+    /* ── LEAD FINDING ── */
+    .lead-finding {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 36px 40px;
+      margin-bottom: 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lead-finding::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle at top right, rgba(184,112,46,.18), transparent 70%);
+    }
+    .lead-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 16px;
+    }
+    .lead-stat {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1;
+      color: white;
+      letter-spacing: -.03em;
+    }
+    .lead-stat span {
+      font-size: 22px;
+      font-weight: 400;
+      color: #c8c4bc;
+      display: block;
+      margin-top: 8px;
+      font-family: 'Source Serif 4', serif;
+      letter-spacing: 0;
+      line-height: 1.4;
+    }
+    .lead-note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #a09c94;
+      line-height: 1.6;
+      max-width: 520px;
+    }
+
+    /* ── SCORECARD ── */
+    .scorecard { border: 1px solid var(--rule); }
+    .sc-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border-bottom: 1px solid var(--rule-soft);
+      transition: background .15s;
+    }
+    .sc-row:last-child { border-bottom: none; }
+    .sc-row:hover { background: var(--paper-warm); }
+    .sc-indicator {
+      width: 4px;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+    .sc-indicator.green { background: var(--green); }
+    .sc-indicator.amber { background: #c8960a; }
+    .sc-indicator.gray  { background: var(--rule); }
+    .sc-label {
+      flex: 1;
+      padding: 14px 16px;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .sc-badge {
+      padding: 14px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .sc-badge.green { color: var(--green); }
+    .sc-badge.amber { color: var(--amber); }
+    .sc-badge.gray  { color: var(--ink-soft); }
+
+    /* ── CALLOUT ── */
+    .callout {
+      margin-top: 24px;
+      padding: 20px 24px;
+      background: var(--paper-warm);
+      border-left: 2px solid var(--copper);
+    }
+    .callout p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-mid);
+    }
+    .callout strong { color: var(--ink); font-weight: 600; }
+    .callout em { font-style: italic; color: var(--copper); }
+
+    /* ── STAT PAIR ── */
+    .stat-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 24px 0;
+    }
+    .stat-cell {
+      background: var(--paper-warm);
+      padding: 24px 20px;
+    }
+    .stat-cell .n {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -.03em;
+      line-height: 1;
+    }
+    .stat-cell .n.copper { color: var(--copper); }
+    .stat-cell .l {
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ── BODY TEXT ── */
+    .body-text {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-mid);
+    }
+    .body-text + .body-text { margin-top: 14px; }
+    .body-text strong { color: var(--ink); font-weight: 600; }
+
+    /* ── ENTITY BAR ── */
+    .entity-bar-wrap { margin: 20px 0; }
+    .entity-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink-soft);
+      margin-bottom: 6px;
+    }
+    .entity-bar-track {
+      height: 6px;
+      background: var(--rule);
+      position: relative;
+    }
+    .entity-bar-fill {
+      height: 100%;
+      background: var(--copper);
+      width: 45%;
+      transition: width 1s ease .6s;
+    }
+    .entity-bar-fill.competitor { background: var(--ink); width: 78%; }
+
+    /* ── PRIORITY LIST ── */
+    .p-list { list-style: none; counter-reset: plist; }
+    .p-item {
+      counter-increment: plist;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--rule-soft);
+      padding: 20px 0;
+    }
+    .p-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .p-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--rule);
+      line-height: 1;
+      padding-top: 2px;
+      letter-spacing: -.02em;
+    }
+    .p-num::before { content: counter(plist, decimal-leading-zero); }
+    .p-body strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .p-body p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ── CLOSING ── */
+    .closing {
+      border-top: 3px solid var(--ink);
+      padding-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: end;
+    }
+    .closing-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+      letter-spacing: -.01em;
+    }
+    .closing-text p {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      max-width: 420px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'Source Serif 4', serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      white-space: nowrap;
+      transition: background .2s, color .2s;
+    }
+    .cta-btn:hover { background: var(--copper); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 580px) {
+      .page { padding: 40px 20px 80px; }
+      .lead-finding { padding: 28px 24px; }
+      .lead-stat { font-size: 56px; }
+      .stat-pair { grid-template-columns: 1fr; }
+      .closing { grid-template-columns: 1fr; }
+      .cta-btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <header class="masthead fade fade-1">
+    <p class="masthead-label">SEO-auditointi &middot; Henkilökohtainen raportti</p>
+    <h1>Joni Nykänen<br>joninykanen.com</h1>
+    <div class="masthead-meta">
+      <span>1. toukokuuta 2026</span>
+      <span>SEO-konsultti, pienyritykset</span>
+      <span>Kansallinen fokus</span>
+    </div>
+  </header>
+
+  <!-- LEAD FINDING -->
+  <div class="lead-finding fade fade-2">
+    <p class="lead-label">Päädiagnoosi</p>
+    <div class="lead-stat">
+      5
+      <span>merkittävää löydöstä — 3 korjattavissa tällä viikolla</span>
+    </div>
+    <p class="lead-note">Sivuston tekninen rakenne on pääosin kunnossa. Kolme asiaa estää kasvun: avainsivujen ohut sisältö, title-tagien katkaisu ja käytännössä nolla orgaanista liikennettä brändin ulkopuolelta. Kaikki kolme korjataan ilman koodimuutoksia.</p>
+  </div>
+
+  <!-- 01 TEKNINEN TERVEYS -->
+  <div class="block fade fade-3">
+    <div class="block-header">
+      <span class="block-num">01</span>
+      <span class="block-title">Tekninen terveys</span>
+      <span class="block-rule"></span>
+    </div>
+
+    <div class="scorecard">
+      <div class="sc-row">
+        <div class="sc-indicator amber"></div>
+        <span class="sc-label">Crawlattavuus &amp; indeksointi</span>
+        <span class="sc-badge amber">Kehityskohde</span>
+      </div>
+      <div class="sc-row">
+        <div class="sc-indicator gray"></div>
+        <span class="sc-label">Sivunopeus — Core Web Vitals</span>
+        <span class="sc-badge gray">Ei mitattu</span>
+      </div>
+      <div class="sc-row">
+        <div class="sc-indicator green"></div>
+        <span class="sc-label">Mobiilikäyttökokemus</span>
+        <span class="sc-badge green">Kunnossa</span>
+      </div>
+      <div class="sc-row">
+        <div class="sc-indicator amber"></div>
+        <span class="sc-label">On-page SEO — title tagit, otsikot, kuvaukset</span>
+        <span class="sc-badge amber">Kehityskohde</span>
+      </div>
+      <div class="sc-row">
+        <div class="sc-indicator amber"></div>
+        <span class="sc-label">Sisältölaatu — sanamäärät, syvyys</span>
+        <span class="sc-badge amber">Kehityskohde</span>
+      </div>
+      <div class="sc-row">
+        <div class="sc-indicator green"></div>
+        <span class="sc-label">Turvallisuus &amp; luottamus — HTTPS, domain</span>
+        <span class="sc-badge green">Kunnossa</span>
+      </div>
+      <div class="sc-row">
+        <div class="sc-indicator green"></div>
+        <span class="sc-label">Strukturoitu data — schema-merkinnät</span>
+        <span class="sc-badge green">Kunnossa</span>
+      </div>
+      <div class="sc-row">
+        <div class="sc-indicator amber"></div>
+        <span class="sc-label">AI-hakukonelöydettävyys</span>
+        <span class="sc-badge amber">Rakentamisvaiheessa</span>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>Kriittinen löydös — title tagit:</strong> Kolmen blogiartikkelin title-tagi on katkaistu HTML-tasolla. Google näkee otsikon kirjaimellisesti muodossa <em>"…&thinsp;— Joni Nykänen"</em>. Tämä ei ole sisältöongelma — kyse on Sanityn asetuksesta, joka rajaa merkkimäärää liian tiukasti. Korjataan yhdellä muutoksella.</p>
+    </div>
+
+    <div class="callout" style="margin-top:12px;">
+      <p><strong>Sivunopeus:</strong> Automaattinen mittaus ei onnistunut sivuston suojaustoimien vuoksi. Tarkista tilanne manuaalisesti osoitteessa <strong>pagespeed.web.dev</strong> — erityisesti mobiilipisteet.</p>
+    </div>
+  </div>
+
+  <!-- 02 ORGAANINEN LIIKENNE -->
+  <div class="block fade fade-4">
+    <div class="block-header">
+      <span class="block-num">02</span>
+      <span class="block-title">Orgaaninen liikenne — nykytila</span>
+      <span class="block-rule"></span>
+    </div>
+
+    <div class="stat-pair">
+      <div class="stat-cell">
+        <div class="n">46</div>
+        <div class="l">klikkausta yhteensä<br>helmikuu 2025 – toukokuu 2026</div>
+      </div>
+      <div class="stat-cell">
+        <div class="n copper">95,7 %</div>
+        <div class="l">liikenteestä brändihakuja<br>("joni nykänen")</div>
+      </div>
+    </div>
+
+    <p class="body-text">Käytännössä kaikki orgaaninen liikenne tulee hakusanalta "joni nykänen" — eli ihmisiltä, jotka jo tuntevat sinut. Ei-brändi-orgaaninen liikenne on tällä hetkellä <strong>1 klikkaus 15 kuukauden ajalta.</strong></p>
+    <p class="body-text" style="margin-top:12px;">Tämä on normaali tilanne uudelleenrakennetulle sivustolle — ja se tarkoittaa, että kaikki kasvupotentiaali on vielä edessä.</p>
+  </div>
+
+  <!-- 03 AI-NÄKYVYYS -->
+  <div class="block fade fade-5">
+    <div class="block-header">
+      <span class="block-num">03</span>
+      <span class="block-title">AI-hakukoneet — ChatGPT, Perplexity, Google AI</span>
+      <span class="block-rule"></span>
+    </div>
+
+    <p class="body-text">Sivustosi ei tällä hetkellä näy AI-hakukoneiden suosituksissa, kun potentiaaliset asiakkaat hakevat SEO-konsulttia. Teknistä estettä ei ole — kaikki AI-botit ovat sallittu robots.txt-tiedostossa. Syy on auktoriteettivaje, ei tekniikka.</p>
+
+    <div class="entity-bar-wrap" style="margin:28px 0 8px;">
+      <div class="entity-bar-label">
+        <span>Joni Nykänen — entiteettiauktoriteetti</span>
+        <span style="color:var(--copper); font-weight:600;">45 / 100</span>
+      </div>
+      <div class="entity-bar-track"><div class="entity-bar-fill"></div></div>
+    </div>
+    <div class="entity-bar-wrap">
+      <div class="entity-bar-label">
+        <span>Jussi Viljanen (kilpailija) — arvio</span>
+        <span style="font-weight:600;">~78 / 100</span>
+      </div>
+      <div class="entity-bar-track"><div class="entity-bar-fill competitor"></div></div>
+    </div>
+
+    <p class="body-text" style="margin-top:20px;">Jussi Viljanen (jussiviljanen.com) saa suosituksia ChatGPT:ltä, Geminiltä ja Perplexityltä nimeltä. Hänen etunsa ei perustu parempaan tekniikkaan — se perustuu <strong>asiakasarvosteluihin, ulkoisiin brändimainnintoihin ja sisältösyvyyteen</strong> — joita hän on rakentanut vuosia. Ne kaikki on rakennettavissa myös sinulle.</p>
+  </div>
+
+  <!-- 04 HAKUMAHDOLLISUUDET -->
+  <div class="block fade fade-6">
+    <div class="block-header">
+      <span class="block-num">04</span>
+      <span class="block-title">Hakumahdollisuudet</span>
+      <span class="block-rule"></span>
+    </div>
+
+    <p class="body-text">Analyysissa tunnistimme <strong>yli 700 hakua kuukaudessa</strong> joita potentiaaliset asiakkaasi tekevät — joihin sivustosi ei tällä hetkellä vastaa riittävän selkeästi. Näistä neljä on lähes ilman kilpailua.</p>
+
+    <div class="stat-pair" style="margin:24px 0;">
+      <div class="stat-cell">
+        <div class="n copper">+189 %</div>
+        <div class="l">"seo auditointi" — kasvu 3 kk<br>110 hakua / kk, matala kilpailu</div>
+      </div>
+      <div class="stat-cell">
+        <div class="n copper">+467 %</div>
+        <div class="l">"tekninen seo" — kasvu 3 kk<br>90 hakua / kk, käytännössä nolla kilpailua</div>
+      </div>
+    </div>
+
+    <p class="body-text">Palvelusivu SEO-auditoinnille on jo olemassa — se tarvitsee laajentamisen. Tekniselle SEO:lle ei ole sivua lainkaan. Kumpikin on nopeimman kasvun kohde.</p>
+
+    <div class="callout" style="margin-top:20px;">
+      <p>Lisäksi hakutermi <strong>"hakukoneoptimointi hinta"</strong> tuo 260 hakua kuukaudessa matalalla kilpailulla. Sinulla on aiheesta jo artikkeli — se on vain 359 sanaa. Laajentaminen 800 sanaan vie yhden iltapäivän.</p>
+    </div>
+  </div>
+
+  <!-- 05 TOIMENPIDEJÄRJESTYS -->
+  <div class="block fade fade-7">
+    <div class="block-header">
+      <span class="block-num">05</span>
+      <span class="block-title">Suositeltu toimenpidejärjestys</span>
+      <span class="block-rule"></span>
+    </div>
+
+    <ul class="p-list">
+      <li class="p-item">
+        <span class="p-num"></span>
+        <div class="p-body">
+          <strong>Korjaa title-tagien katkaisu</strong>
+          <p>3 blogiartikkelia näkyy Googlelle otsikolla "…&thinsp;— Joni Nykänen". Muuta Sanityn title-merkkirajoitusta tai lyhennä otsikot. Yksi muutos, välitön vaikutus klikkiprosenttiin.</p>
+        </div>
+      </li>
+      <li class="p-item">
+        <span class="p-num"></span>
+        <div class="p-body">
+          <strong>Kasvata etusivun sisältö 168 &rarr; 500+ sanaan</strong>
+          <p>Etusivu on pääasiakasvirran laskeutumissivu "seo-konsultti"-hauille, mutta siellä on vain 168 sanaa. Lisää palvelukuvaus, prosessi ja yksi konkreettinen asiakastulos.</p>
+        </div>
+      </li>
+      <li class="p-item">
+        <span class="p-num"></span>
+        <div class="p-body">
+          <strong>Laajenna hinta-artikkeli 359 &rarr; 800+ sanaan</strong>
+          <p>"Hakukoneoptimointi hinta" — 260 hakua kuukaudessa, matala kilpailu. Lisää konkreettinen hintataulukko ja usein kysytyt kysymykset. Top 5 on tavoitettavissa.</p>
+        </div>
+      </li>
+      <li class="p-item">
+        <span class="p-num"></span>
+        <div class="p-body">
+          <strong>Luo Tekninen SEO -blogiartikkeli</strong>
+          <p>Hakutermi kasvoi 467 % viimeisessä kvartaalissa. Kilpailu on käytännössä nolla. Ei yhtään vakiintunutta suomenkielistä artikkelia aiheesta — tilaisuus on nyt.</p>
+        </div>
+      </li>
+      <li class="p-item">
+        <span class="p-num"></span>
+        <div class="p-body">
+          <strong>Google Business Profile &amp; ensimmäiset arvostelut</strong>
+          <p>Julkisia arvosteluja tai ulkoisia brändimainnintoja ei löydy lainkaan. Profiilin luominen on ilmainen. Viisi arvosteluakin parantaa sekä paikallista näkyvyyttä että AI-suosituksia.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="closing fade fade-8">
+    <div class="closing-text">
+      <h2>Seuraava askel</h2>
+      <p>Nämä löydökset ovat lähtölaukaus. Toteutus ratkaisee — ei analyysi. Jos haluat käydä läpi priorisointia tai aloittaa jonkin kohdan, ota suoraan yhteyttä.</p>
+    </div>
+    <a href="https://www.joninykanen.com/kartoitus" class="cta-btn">Varaa kartoitus &rarr;</a>
+  </div>
+
+</div>
+</body>
+</html>
