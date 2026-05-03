@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO-auditointi — Eväs Ravintola</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:        #0F0D0B;
+    --bg2:       #1A1713;
+    --bg3:       #221E19;
+    --border:    #2E2820;
+    --gold:      #C8820A;
+    --gold-lt:   #E09C2A;
+    --parchment: #F0E8D8;
+    --parchment2:#C4B89A;
+    --text:      #EDE5D8;
+    --muted:     #7A6E60;
+    --red:       #C0392B;
+    --red-bg:    #2A1210;
+    --amber:     #B07A10;
+    --amber-bg:  #221900;
+    --green:     #4A7A48;
+    --green-bg:  #0D1F0D;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── GRAIN OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.35;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 780px; margin: 0 auto; padding: 0 28px; }
+
+  /* ── HEADER ── */
+  header {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .label {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 120px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 7vw, 62px);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--parchment);
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold-lt);
+  }
+
+  .header-meta {
+    margin-top: 28px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .meta-item .meta-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .meta-item .meta-value {
+    font-size: 14px;
+    color: var(--parchment2);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.7s ease both;
+  }
+  section:nth-child(2) { animation-delay: 0.1s; }
+  section:nth-child(3) { animation-delay: 0.2s; }
+  section:nth-child(4) { animation-delay: 0.3s; }
+  section:nth-child(5) { animation-delay: 0.4s; }
+  section:nth-child(6) { animation-delay: 0.5s; }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 400;
+    color: var(--parchment);
+    line-height: 1.15;
+    margin-bottom: 32px;
+    letter-spacing: -0.01em;
+  }
+  h2 em { font-style: italic; color: var(--gold-lt); }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--parchment);
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+
+  p { color: var(--parchment2); margin-bottom: 16px; max-width: 62ch; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── STAT TRIO ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 40px 0;
+    border: 1px solid var(--border);
+  }
+  .stat {
+    background: var(--bg2);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .stat:hover::before { transform: scaleX(1); }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    font-weight: 300;
+    color: var(--gold-lt);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  /* ── SCORECARD ── */
+  .scorecard {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 32px 0;
+  }
+  .score-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 20px;
+    background: var(--bg2);
+    padding: 18px 22px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .score-row:hover { border-color: var(--gold); }
+  .score-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .score-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 3px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+  }
+  .score-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    white-space: nowrap;
+  }
+  .score-bar-wrap {
+    width: 90px;
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .score-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease;
+  }
+  .score-bar.red   { background: var(--red); }
+  .score-bar.amber { background: var(--amber); }
+  .score-bar.green { background: var(--green); }
+
+  .score-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    min-width: 48px;
+    text-align: right;
+  }
+  .score-num.red   { color: #E05040; }
+  .score-num.amber { color: #D09830; }
+  .score-num.green { color: #6AB068; }
+
+  /* ── FINDING CARDS ── */
+  .finding-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .finding {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    padding: 22px 24px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .finding:hover { transform: translateX(4px); }
+  .finding.critical { border-left-color: var(--red); }
+  .finding.warning  { border-left-color: var(--amber); }
+  .finding.good     { border-left-color: var(--green); }
+
+  .finding-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .finding-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge.red   { background: var(--red-bg);   color: #E07060; border: 1px solid #5A1A14; }
+  .badge.amber { background: var(--amber-bg); color: #C89030; border: 1px solid #4A3000; }
+  .badge.green { background: var(--green-bg); color: #6AB068; border: 1px solid #1A3A1A; }
+
+  .finding-desc {
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ── KEYWORD TABLE ── */
+  .kw-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 13.5px;
+  }
+  .kw-table thead tr {
+    border-bottom: 1px solid var(--border);
+  }
+  .kw-table th {
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--muted);
+    padding: 10px 14px 10px 0;
+  }
+  .kw-table th:last-child { text-align: right; padding-right: 0; }
+  .kw-table td {
+    padding: 14px 14px 14px 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--parchment2);
+  }
+  .kw-table td:last-child { text-align: right; padding-right: 0; }
+  .kw-table tr:last-child td { border-bottom: none; }
+  .kw-table tr:hover td { background: var(--bg2); }
+  .kw-name { color: var(--text); font-weight: 500; }
+  .kw-vol {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--gold-lt);
+  }
+  .pos-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 2px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .pos-pill.none { color: #5A1A14; background: var(--red-bg); border-color: #5A1A14; }
+  .pos-pill.near { color: #6AB068; background: var(--green-bg); border-color: #1A3A1A; }
+
+  /* ── ACTION ROADMAP ── */
+  .roadmap {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .roadmap-phase {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .roadmap-header {
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .roadmap-header:hover { background: var(--bg3); }
+  .roadmap-phase-title {
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .phase-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold-lt);
+    font-weight: 400;
+    line-height: 1;
+  }
+  .roadmap-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .roadmap-body {
+    padding: 0 22px 22px;
+  }
+  .roadmap-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .roadmap-item:last-child { border-bottom: none; }
+  .roadmap-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .roadmap-text {
+    font-size: 13.5px;
+    color: var(--parchment2);
+    line-height: 1.5;
+  }
+  .roadmap-impact {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight-box {
+    background: linear-gradient(135deg, #1C1608 0%, var(--bg2) 100%);
+    border: 1px solid #3A2C10;
+    padding: 32px;
+    margin: 32px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .highlight-box .big-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--gold-lt);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .highlight-box .big-label {
+    font-size: 13px;
+    color: var(--parchment2);
+    max-width: 52ch;
+  }
+
+  /* ── CTA ── */
+  .cta-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    padding: 48px 40px;
+    text-align: center;
+    margin: 48px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,130,10,0.06) 0%, transparent 60%);
+  }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 400;
+    color: var(--parchment);
+    margin-bottom: 14px;
+    line-height: 1.2;
+    position: relative;
+  }
+  .cta-title em { font-style: italic; color: var(--gold-lt); }
+  .cta-sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+    max-width: 46ch;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: #0F0D0B;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .cta-btn:hover { background: var(--gold-lt); transform: translateY(-1px); }
+  .cta-btn::after {
+    content: '→';
+    font-size: 14px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 40px 0;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .divider-icon {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 0 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.7s ease 0.5s both;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .footer-meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .stat-grid { grid-template-columns: 1fr; }
+    .header-meta { gap: 20px; }
+    .cta-block { padding: 36px 24px; }
+    .kw-table th:nth-child(3),
+    .kw-table td:nth-child(3) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="label">SEO-auditointi &nbsp;·&nbsp; 2026</div>
+    <h1>Eväs Ravintola<br><em>Tampereen näkyvyys</em></h1>
+    <div class="header-meta">
+      <div class="meta-item">
+        <span class="meta-label">Verkkosivusto</span>
+        <span class="meta-value">eväsravintola.fi</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Päivämäärä</span>
+        <span class="meta-value">3. toukokuuta 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Kokonaisarvio</span>
+        <span class="meta-value" style="color: #E05040; font-weight: 600;">30 / 100</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── YHTEENVETO ── -->
+  <section>
+    <div class="label">Yhteenveto</div>
+    <h2>Sivusto löytyy vain, kun<br><em>tuntee sen nimen</em></h2>
+
+    <p>Eväs Ravintola löytyy top 1:stä kaikilla omilla brändihauillaan — "ravintola eväs", "eväs lounas", "eväs tampere". Ongelma on siinä, että kukaan uusi asiakas ei käytä näitä hakuja. He kirjoittavat "lounas tampere" tai "intialainen ravintola tampere".</p>
+
+    <p>Näillä termeillä sivusto on käytännössä näkymätön.</p>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="stat-num">9 900</div>
+        <div class="stat-label">hakua/kk termille<br>"lounas tampere"</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">30.</div>
+        <div class="stat-label">sijalla sivusto on<br>tällä hetkellä</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10/10</div>
+        <div class="stat-label">sivua ilman<br>hakukonekuvausta</div>
+      </div>
+    </div>
+
+    <p>Hyvä uutinen: tekninen perusta on kunnossa — sivusto latautuu nopeasti, HTTPS toimii, Cloudflare suojaa. Näkyvyysongelmat eivät johdu rakenteesta vaan puuttuvista teksteistä ja metatiedoista. Uusia sivuja ei tarvita.</p>
+  </section>
+
+  <!-- ── SCORECARD ── -->
+  <section>
+    <div class="label">Löydökset</div>
+    <h2>Neljä <em>osa-aluetta</em></h2>
+
+    <div class="scorecard">
+      <div class="score-row">
+        <div>
+          <div class="score-name">Tekninen pohja</div>
+          <div class="score-sub">Nopeus, indeksointi, crawlattavuus</div>
+        </div>
+        <div class="score-right">
+          <div class="score-bar-wrap"><div class="score-bar red" style="width: 44%"></div></div>
+          <div class="score-num red">44</div>
+        </div>
+      </div>
+      <div class="score-row">
+        <div>
+          <div class="score-name">AI-näkyvyys</div>
+          <div class="score-sub">ChatGPT, Perplexity, Google AI</div>
+        </div>
+        <div class="score-right">
+          <div class="score-bar-wrap"><div class="score-bar red" style="width: 15%"></div></div>
+          <div class="score-num red">15</div>
+        </div>
+      </div>
+      <div class="score-row">
+        <div>
+          <div class="score-name">Avainsanapeitto</div>
+          <div class="score-sub">Tavoitettavat haut vs. nykytilanne</div>
+        </div>
+        <div class="score-right">
+          <div class="score-bar-wrap"><div class="score-bar red" style="width: 25%"></div></div>
+          <div class="score-num red">25</div>
+        </div>
+      </div>
+      <div class="score-row">
+        <div>
+          <div class="score-name">Sisältö</div>
+          <div class="score-sub">Laatu, rakenne, kilpailijagap</div>
+        </div>
+        <div class="score-right">
+          <div class="score-bar-wrap"><div class="score-bar red" style="width: 35%"></div></div>
+          <div class="score-num red">35</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── KRIITTISET LÖYDÖKSET ── -->
+  <section>
+    <div class="label">Kriittiset löydökset</div>
+    <h2>Viisi asiaa, jotka<br><em>jarruttavat kasvua</em></h2>
+
+    <div class="finding-list">
+
+      <div class="finding critical">
+        <div class="finding-head">
+          <div class="finding-title">Sivusto on asetettu englanninkieliseksi</div>
+          <span class="badge red">Kriittinen</span>
+        </div>
+        <div class="finding-desc">Koko sivusto on merkitty kielellä "englanti" — vaikka jokainen sana on suomea. Google lukee sen englanninkielisenä sivustona. Se nakertaa näkyvyyttä suomalaisissa hauissa. Korjaus vie minuutin WordPress-asetuksissa.</div>
+      </div>
+
+      <div class="finding critical">
+        <div class="finding-head">
+          <div class="finding-title">Hakukonekuvaukset puuttuvat kaikilta sivuilta</div>
+          <span class="badge red">Kriittinen</span>
+        </div>
+        <div class="finding-desc">Jokaisen hakutuloslinkin alla on kuvaus, joka kertoo miksi klikata. Yhdeltäkään Eväsin sivulta ei löydy sitä — Google kirjoittaa sen itse, miten sattuu. Kaikki 10 sivua pitää kirjoittaa käsin.</div>
+      </div>
+
+      <div class="finding critical">
+        <div class="finding-head">
+          <div class="finding-title">Menu-sivulla on väärän ravintolan ruokalista</div>
+          <span class="badge red">Kriittinen</span>
+        </div>
+        <div class="finding-desc">Sivuston menu-sivu sisältää toisen tamperelaisen ravintolan englannikielisen ruokalistan. Sivu on näkymätön navigaatiossa, mutta Google indeksoi sen. Tämä vahingoittaa sivuston luotettavuutta hakukoneen silmissä. Sivu pitää poistaa tai korvata välittömästi.</div>
+      </div>
+
+      <div class="finding critical">
+        <div class="finding-head">
+          <div class="finding-title">Rakenteelliset metatiedot puuttuvat kokonaan</div>
+          <span class="badge red">Kriittinen</span>
+        </div>
+        <div class="finding-desc">Google voi näyttää ravintolan aukioloajat, osoitteen ja arvostelut suoraan hakutuloksissa — mutta vain kun ne on merkitty koneluettavaan muotoon. Eväsillä se puuttuu kaikilta sivuilta. Kilpailijat saavat tämän laajennetun näkymän automaattisesti.</div>
+      </div>
+
+      <div class="finding warning">
+        <div class="finding-head">
+          <div class="finding-title">Otsikkotageista puuttuu sijainti ja avainsanat</div>
+          <span class="badge amber">Kehityskohde</span>
+        </div>
+        <div class="finding-desc">Etusivun otsikko on "Eväs Ravintola" — 14 merkkiä. Hakijalle se ei kerro missä ravintola on tai mitä se tarjoaa. Vertailukohtana: kilpailijasivuilla otsikot ovat muotoa "Lounas Tampere | Ravintola X — Parhaat lounaat arkisin". Jokaiseen otsikkoon pitää lisätä kaupunki ja palvelu.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── KEYWORD-MAHDOLLISUUDET ── -->
+  <section>
+    <div class="label">Hakupotentiaali</div>
+    <h2>Haut, joita Eväsin<br><em>pitäisi tavoittaa</em></h2>
+
+    <p>Alla on hakuja, joita tamperelainen käyttää etsiessään lounasta tai intialaista ruokaa. KD kertoo kilpailun kovuuden: 5 on matala, 100 on kova.</p>
+
+    <table class="kw-table">
+      <thead>
+        <tr>
+          <th>Hakutermi</th>
+          <th>Haut/kk</th>
+          <th>KD</th>
+          <th>Sijoitus nyt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="kw-name">lounas tampere</span></td>
+          <td><span class="kw-vol">9 900</span></td>
+          <td style="color: var(--green)">5</td>
+          <td><span class="pos-pill">sija 30</span></td>
+        </tr>
+        <tr>
+          <td><span class="kw-name">intialainen ravintola tampere</span></td>
+          <td><span class="kw-vol">1 000</span></td>
+          <td style="color: var(--green)">5</td>
+          <td><span class="pos-pill none">ei sijoitusta</span></td>
+        </tr>
+        <tr>
+          <td><span class="kw-name">buffet tampere</span></td>
+          <td><span class="kw-vol">1 300</span></td>
+          <td>—</td>
+          <td><span class="pos-pill near">sija 9–10</span></td>
+        </tr>
+        <tr>
+          <td><span class="kw-name">paras lounas tampere</span></td>
+          <td><span class="kw-vol">1 300</span></td>
+          <td>—</td>
+          <td><span class="pos-pill none">ei sijoitusta</span></td>
+        </tr>
+        <tr>
+          <td><span class="kw-name">kotiruokalounas tampere</span></td>
+          <td><span class="kw-vol">110</span></td>
+          <td style="color: var(--green)">2</td>
+          <td><span class="pos-pill none">ei sijoitusta</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <div class="big-num">9 900</div>
+      <div class="big-label">"Lounas tampere" -hakua tehdään joka kuukausi. Kilpailutaso on vain 5/100. Nyt sijataan 30. Uusia sivuja ei tarvita — pelkkä otsikko- ja kielikorjaus riittää ensimmäiseen hyppyyn.</div>
+    </div>
+  </section>
+
+  <!-- ── ROADMAP ── -->
+  <section>
+    <div class="label">Toimintasuunnitelma</div>
+    <h2>Kolme vaihetta,<br><em>yksi kuukausi</em></h2>
+
+    <div class="roadmap">
+
+      <div class="roadmap-phase">
+        <div class="roadmap-header">
+          <div class="roadmap-phase-title">
+            <span class="phase-num">01</span>
+            Viikko 1 — Kriittiset korjaukset
+          </div>
+          <span class="roadmap-tag">10 toimenpidettä · matala vaiva</span>
+        </div>
+        <div class="roadmap-body">
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Vaihda sivuston kieli suomeksi WordPress-asetuksista</div>
+            <div class="roadmap-impact">Välitön</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Kirjoita hakukonekuvaukset kaikille 7 pääsivulle</div>
+            <div class="roadmap-impact">Välitön</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Optimoi otsikkotunnisteet: lisää "Tampere" ja palvelukuvaus jokaiselle sivulle</div>
+            <div class="roadmap-impact">1–4 viikko</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Poista tai korvaa menu-sivun väärä sisältö</div>
+            <div class="roadmap-impact">Välitön</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Korjaa intialaisen viikonloppubuffetin sivu — väärä otsikko korjataan</div>
+            <div class="roadmap-impact">Välitön</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Poista WordPress-oletussivu ("Hello World") hakukoneiden näkyvistä</div>
+            <div class="roadmap-impact">Välitön</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-phase">
+        <div class="roadmap-header">
+          <div class="roadmap-phase-title">
+            <span class="phase-num">02</span>
+            Viikko 2 — Rakenne ja paikallinen näkyvyys
+          </div>
+          <span class="roadmap-tag">4 toimenpidettä · kohtalainen vaiva</span>
+        </div>
+        <div class="roadmap-body">
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Lisää ravintolan rakenteelliset metatiedot: aukioloajat, osoite, puhelinnumero koneluettavana</div>
+            <div class="roadmap-impact">Rich results</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Avaa Google Business Profile molemmille sijainneille (Jokipohjantie + Nekala)</div>
+            <div class="roadmap-impact">Maps-näkyvyys</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Listaudu lounaat.info- ja raflaamo.fi-hakemistoihin — AI-hakukoneet viittaavat näihin</div>
+            <div class="roadmap-impact">AI-näkyvyys</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Luo "Tietoa meistä" -sivu: historia, konsepti, molemmat sijainnit, tiimi</div>
+            <div class="roadmap-impact">Luotettavuus</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-phase">
+        <div class="roadmap-header">
+          <div class="roadmap-phase-title">
+            <span class="phase-num">03</span>
+            Kuukausi 2 — Kasvu ja sisältö
+          </div>
+          <span class="roadmap-tag">5 toimenpidettä · pitkä vaikutus</span>
+        </div>
+        <div class="roadmap-body">
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Lisää viikonloppusisältö lounassivulle — "lounas tampere lauantai" hakee 260 henkilöä kuukaudessa</div>
+            <div class="roadmap-impact">+260/kk</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Lisää usein kysytyt kysymykset buffet-sivuille (allergiat, hinnat, tilaukset)</div>
+            <div class="roadmap-impact">AI-lainaukset</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Tavoittele 10 Google-arvostelua — QR-koodi kassalle tai pöytiin</div>
+            <div class="roadmap-impact">Ranking signaali</div>
+          </div>
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-text">Harkitse Foodora- tai Wolt-listausta — tuottaa backlinkin ja lisäliikennettä</div>
+            <div class="roadmap-impact">Authority</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ODOTETUT TULOKSET ── -->
+  <section>
+    <div class="label">Odotetut tulokset</div>
+    <h2>Mitä 6 kuukaudessa<br><em>voidaan saavuttaa</em></h2>
+
+    <p>Alla olevat luvut perustuvat keyword-dataan ja kilpailutasoon. Google Analytics tai Search Console ei ole vielä käytössä, joten ne ovat arvioita. GSC:n kytkeminen on ilmaista ja antaa tarkan seurannan ensimmäisestä viikosta.</p>
+
+    <div class="finding-list">
+      <div class="finding good">
+        <div class="finding-head">
+          <div class="finding-title">"lounas tampere" — sija 30 → 10–15</div>
+          <span class="badge green">6 kk tavoite</span>
+        </div>
+        <div class="finding-desc">9 900 hakua kuukaudessa, kilpailutaso 5/100. Pelkkä kieli- ja otsikkokorjaus voi tuoda nopean nousun.</div>
+      </div>
+      <div class="finding good">
+        <div class="finding-head">
+          <div class="finding-title">"intialainen ravintola tampere" — sija 0 → top 10</div>
+          <span class="badge green">6 kk tavoite</span>
+        </div>
+        <div class="finding-desc">Eväs ei sijoitu lainkaan tähän termiin — vaikka se on ravintolan ydinpalvelu. 1 000 hakua kuukaudessa, KD 5. Buffet-sivujen optimointi voi tuoda tämän top 10:een 3–4 kuukaudessa.</div>
+      </div>
+      <div class="finding good">
+        <div class="finding-head">
+          <div class="finding-title">Orgaaninen liikenne: ~150/kk → 600–900/kk</div>
+          <span class="badge green">6 kk tavoite</span>
+        </div>
+        <div class="finding-desc">Arvio perustuu nykyiseen 35 avainsanan dataan (ETV 1 455) ja siihen, mitä teknisten ja sisältökorjausten jälkeen on saavutettavissa. Tarkka luku selviää vasta GSC-datasta.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <div class="cta-block">
+    <div class="cta-title">Aloitetaan <em>viikolla 1</em></div>
+    <div class="cta-sub">Kymmenen kriittistä korjausta, jotka voi toteuttaa ilman kehittäjää — pelkällä WordPress-pääsyllä.</div>
+    <a href="mailto:ravintola.evas@gmail.com" class="cta-btn">Ota yhteyttä</a>
+  </div>
+
+  <!-- ── FOOTER ── */-->
+  <footer>
+    <span class="footer-brand">Joni Nykänen SEO</span>
+    <span class="footer-meta">Eväs Ravintola · auditointi 2026-05-03 · luottamuksellinen</span>
+  </footer>
+
+</div>
+
+<script>
+  // Animate score bars on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const bars = document.querySelectorAll('.score-bar');
+    setTimeout(() => {
+      bars.forEach(bar => {
+        bar.style.width = bar.style.width; // trigger
+      });
+    }, 200);
+  });
+</script>
+
+</body>
+</html>
